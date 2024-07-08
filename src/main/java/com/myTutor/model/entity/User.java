@@ -30,11 +30,11 @@ public class User extends BaseEntity{
     )
     private List<UserRoleEntity> roles =new ArrayList<>();
 
-    @OneToMany(mappedBy = "addedBy", fetch = FetchType.EAGER)
-    private List<TutoringOffer> addedTutoringOffers;
-
-    @OneToMany(mappedBy = "addedBy", fetch = FetchType.EAGER)
-    private List<TutoringOffer> favouriteTutoringOffers;
+//    @OneToMany(mappedBy = "addedBy", fetch = FetchType.EAGER)
+//    private List<TutoringOffer> addedTutoringOffers;
+//
+//    @OneToMany(mappedBy = "addedBy", fetch = FetchType.EAGER)
+//    private List<TutoringOffer> favouriteTutoringOffers;
 
     //Constructor
     public User() {
@@ -81,27 +81,27 @@ public class User extends BaseEntity{
         this.email = email;
     }
 
-    public List<TutoringOffer> getAddedRecipes() {
-        return addedTutoringOffers;
-    }
-
-    public void setAddedRecipes(List<TutoringOffer> addedTutoringOffers) {
-        this.addedTutoringOffers = addedTutoringOffers;
-    }
-
-    public List<TutoringOffer> getFavouriteRecipes() {
-        return favouriteTutoringOffers;
-    }
-
-    public void setFavouriteRecipes(List<TutoringOffer> favouriteTutoringOffers) {
-        this.favouriteTutoringOffers = favouriteTutoringOffers;
-    }
-
-    public void addFavorite(TutoringOffer tutoringOffer) {
-
-        this.favouriteTutoringOffers.add(tutoringOffer);
-
-    }
+//    public List<TutoringOffer> getAddedRecipes() {
+//        return addedTutoringOffers;
+//    }
+//
+//    public void setAddedRecipes(List<TutoringOffer> addedTutoringOffers) {
+//        this.addedTutoringOffers = addedTutoringOffers;
+//    }
+//
+//    public List<TutoringOffer> getFavouriteRecipes() {
+//        return favouriteTutoringOffers;
+//    }
+//
+//    public void setFavouriteRecipes(List<TutoringOffer> favouriteTutoringOffers) {
+//        this.favouriteTutoringOffers = favouriteTutoringOffers;
+//    }
+//
+//    public void addFavorite(TutoringOffer tutoringOffer) {
+//
+//        this.favouriteTutoringOffers.add(tutoringOffer);
+//
+//    }
 
     public List<UserRoleEntity> getRoles() {
         return roles;

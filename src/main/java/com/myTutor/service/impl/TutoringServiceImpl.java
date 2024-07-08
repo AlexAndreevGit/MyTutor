@@ -67,26 +67,26 @@ public class TutoringServiceImpl implements TutoringService {
 
     }
 
-    @Override
-    public void addToFavouries(Long id, long recipeId) {
-
-        Optional<User> userOptional = userRepository.findById(id);
-
-        if (userOptional.isEmpty()) {
-            return;
-        }
-
-        Optional<TutoringOffer> recipeOptional = tutoringRepository.findById(recipeId);
-
-        if (recipeOptional.isEmpty()) {
-            return;
-        }
-
-        userOptional.get().addFavorite(recipeOptional.get());
-
-        userRepository.save(userOptional.get());  // ako ne e optional bez get?????
-
-    }
+//    @Override
+//    public void addToFavouries(Long id, long recipeId) {
+//
+//        Optional<User> userOptional = userRepository.findById(id);
+//
+//        if (userOptional.isEmpty()) {
+//            return;
+//        }
+//
+//        Optional<TutoringOffer> recipeOptional = tutoringRepository.findById(recipeId);
+//
+//        if (recipeOptional.isEmpty()) {
+//            return;
+//        }
+//
+//        userOptional.get().addFavorite(recipeOptional.get());
+//
+//        userRepository.save(userOptional.get());  // ako ne e optional bez get?????
+//
+//    }
 
     @Override
     public List<TutorialViewDTO> findByAddedById(Long id) {

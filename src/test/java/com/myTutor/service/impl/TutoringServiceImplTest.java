@@ -7,6 +7,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.myTutor.model.DTOs.TutorialViewDTO;
 import com.myTutor.model.enums.CategoryNameEnum;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,6 +27,8 @@ import com.myTutor.repo.CategoryRepository;
 import com.myTutor.repo.TutoringRepository;
 import com.myTutor.repo.UserRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
@@ -50,6 +53,7 @@ class TutoringServiceImplTest {
     private User user;
     private Category category;
     private TutoringOffer tutoringOffer;
+    private TutorialViewDTO tutorialViewDTO;
 
     @BeforeEach
     public void setUp() {
@@ -68,15 +72,16 @@ class TutoringServiceImplTest {
         tutoringOffer = new TutoringOffer();
         tutoringOffer.setDescription(tutorialAddDTO.getDescription());
         tutoringOffer.setPrice(tutorialAddDTO.getPrice());
+
+        tutorialViewDTO = new TutorialViewDTO();
+        tutorialViewDTO.setEmailOfTheTutor(user.getEmail());
+        tutoringOffer.setAddedBy(user);
     }
 
     @Test
     public void testAddTutoringOffer() {
 
-        //public void addTutoringOffer(TutorialAddDTO tutorialAddDTO, String userName) {
-
         when(modelMapper.map(tutorialAddDTO, TutoringOffer.class)).thenReturn(tutoringOffer);
-        when(categoryRepository.findByName(any(CategoryNameEnum.class))).thenReturn(category);
 
         tutoringService.addTutoringOffer(tutorialAddDTO, "testUser");
 
@@ -85,6 +90,18 @@ class TutoringServiceImplTest {
 
     @Test
     void findAllByCategoryId() {
+
+        List<TutoringOffer> offers = new ArrayList<>();
+        offers.add(tutoringOffer);
+
+        when(tutoringRepository.findAllByCategoryId(1)).thenReturn(offers);
+        when(modelMapper.map(tutoringOffer, TutorialViewDTO.class)).thenReturn(tutorialViewDTO);
+
+        List<TutorialViewDTO> result = tutoringService.findAllByCategoryId(1);
+
+        assertEquals(1,result.size());
+        assertEquals("testUser@example.com",result.get(0).getEmailOfTheTutor());
+
     }
 
     @Test
@@ -97,9 +114,11 @@ class TutoringServiceImplTest {
 
     @Test
     void removeOffer() {
+
     }
 
     @Test
     void initTutoringOffers() {
+
     }
 }
