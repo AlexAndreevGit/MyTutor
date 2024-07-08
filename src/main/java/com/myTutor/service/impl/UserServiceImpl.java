@@ -101,13 +101,13 @@ public class UserServiceImpl implements UserService {
             Category category3Data = categoryRepository.findByName(CategoryNameEnum.DATASCIENCE);
 
             //Mathematics offer
-            TutoringOffer tutoringOfferMath1 = new TutoringOffer("Math1", "Description math offer 1", 22.3, category1Math, user1);
+            TutoringOffer tutoringOfferMath1 = new TutoringOffer("Advanced mathematics 1", "Description math offer 1", 22.3, category1Math, user1);
             tutoringRepository.save(tutoringOfferMath1);
 
-            TutoringOffer tutoringOfferMath2 = new TutoringOffer("Math2", "Description math offer 2", 12.3, category1Math, user1);
+            TutoringOffer tutoringOfferMath2 = new TutoringOffer("Linear algebra", "Description math offer 2", 12.3, category1Math, user1);
             tutoringRepository.save(tutoringOfferMath2);
 
-            TutoringOffer tutoringOfferMath3 = new TutoringOffer("Math3", "Description math offer 3", 32.3, category1Math, user1);
+            TutoringOffer tutoringOfferMath3 = new TutoringOffer("Math. Integral solving", "Description math offer 3", 32.3, category1Math, user1);
             tutoringRepository.save(tutoringOfferMath3);
 
             //Informaticss offer
