@@ -24,7 +24,7 @@ public class DataBaseInit implements CommandLineRunner {
     public void run(String... args) throws Exception {
         categoryService.initCategories();
         userService.initUsers();
-        tutoringService.initTutoringOffers();
+        //tutoringService.initTutoringOffers();
 
     }
 

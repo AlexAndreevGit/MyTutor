@@ -97,11 +97,8 @@ public class TutoringServiceImpl implements TutoringService {
         for (TutoringOffer tutoringOffer : tutoringOffersAsObject) {
             TutorialViewDTO tutorialViewDTO = modelMapper.map(tutoringOffer, TutorialViewDTO.class);
 
-
-
             liatOfAllOffersAsViewDTO.add(tutorialViewDTO);
         }
-
 
         return liatOfAllOffersAsViewDTO;
     }
@@ -111,14 +108,14 @@ public class TutoringServiceImpl implements TutoringService {
         tutoringRepository.deleteById(id);
     }
 
-    @Override
-    public void initTutoringOffers() {
-
-//        if (tutoringRepository.count() == 0) {
-//            TutoringOffer tutoringOffer = new TutoringOffer();
-//        }
-
-    }
+//    @Override
+//    public void initTutoringOffers() {
+//
+////        if (tutoringRepository.count() == 0) {
+////            TutoringOffer tutoringOffer = new TutoringOffer();
+////        }
+//
+//    }
 
 
 }

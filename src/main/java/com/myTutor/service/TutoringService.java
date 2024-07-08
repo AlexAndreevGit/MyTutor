@@ -17,5 +17,5 @@ public interface TutoringService {
 
     void removeOffer(Long id);
 
-    void initTutoringOffers();
+    //void initTutoringOffers();
 }

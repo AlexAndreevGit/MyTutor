@@ -1,8 +1,7 @@
 package com.myTutor.service.impl;
 
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -55,6 +54,8 @@ class TutoringServiceImplTest {
     private TutoringOffer tutoringOffer;
     private TutorialViewDTO tutorialViewDTO;
 
+    private List<TutoringOffer> tutoringOffers;
+
     @BeforeEach
     public void setUp() {
         tutorialAddDTO = new TutorialAddDTO();
@@ -104,21 +105,80 @@ class TutoringServiceImplTest {
 
     }
 
-    @Test
-    void addToFavouries() {
-    }
 
     @Test
     void findByAddedById() {
+
+//        @Override
+//        public List<TutorialViewDTO> findByAddedById(Long id) {
+//
+//            List<TutoringOffer> tutoringOffersAsObject = tutoringRepository.findByAddedById(id);
+//            List<TutorialViewDTO> liatOfAllOffersAsViewDTO = new ArrayList<>();
+//
+//            for (TutoringOffer tutoringOffer : tutoringOffersAsObject) {
+//                TutorialViewDTO tutorialViewDTO = modelMapper.map(tutoringOffer, TutorialViewDTO.class);
+//
+//                liatOfAllOffersAsViewDTO.add(tutorialViewDTO);
+//            }
+//
+//            return liatOfAllOffersAsViewDTO;
+//        }
+
+
+//        List<TutorialViewDTO> offers = new ArrayList<>();
+//        offers.add(tutorialViewDTO);
+//
+//        when(tutoringService.findByAddedById(anyLong())).thenReturn(offers);
+//
+//        when(modelMapper.map(offers.get(0), TutorialViewDTO.class)).thenReturn(new TutorialViewDTO());
+//
+//        List<TutorialViewDTO> result = tutoringService.findByAddedById((long)1);
+//
+//        assertEquals(1,result.size());
+
+
+
+        tutoringOffers = new ArrayList<>();
+
+        // Mock TutoringOffer object
+        TutoringOffer offer1 = new TutoringOffer();
+        offer1.setId(1L);
+        User user1 = new User();
+        user1.setId(1L);
+        user1.setEmail("user1@example.com");
+        offer1.setAddedBy(user1);
+
+        TutoringOffer offer2 = new TutoringOffer();
+        offer2.setId(2L);
+        User user2 = new User();
+        user2.setId(2L);
+        user2.setEmail("user2@example.com");
+        offer2.setAddedBy(user2);
+
+        tutoringOffers.add(offer1);
+        tutoringOffers.add(offer2);
+
+        when(tutoringRepository.findByAddedById(anyLong())).thenReturn(tutoringOffers);
+
+        // Mock the modelMapper call
+        when(modelMapper.map(tutoringOffers.get(0), TutorialViewDTO.class)).thenReturn(new TutorialViewDTO());
+        when(modelMapper.map(tutoringOffers.get(1), TutorialViewDTO.class)).thenReturn(new TutorialViewDTO());
+
+        // Call the service method
+        List<TutorialViewDTO> result = tutoringService.findByAddedById(1L);
+
+        // Assert the result
+        assertEquals(2, result.size());
+
     }
 
     @Test
     void removeOffer() {
 
+        tutoringService.removeOffer(1L);
+
+        verify(tutoringRepository,times(1)).deleteById(1L);
+
     }
 
-    @Test
-    void initTutoringOffers() {
-
-    }
 }
