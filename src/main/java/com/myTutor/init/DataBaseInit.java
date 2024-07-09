@@ -7,6 +7,8 @@ import com.myTutor.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+// CommandLinerRunneris coming from spring
+// The interface contains only the run method
 @Component
 public class DataBaseInit implements CommandLineRunner {
 

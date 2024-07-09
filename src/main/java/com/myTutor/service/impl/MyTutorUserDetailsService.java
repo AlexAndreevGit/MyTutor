@@ -16,6 +16,7 @@ import java.util.List;
 // on purpose no annotation so it doesent go in the context of spring
 public class MyTutorUserDetailsService implements UserDetailsService {
 
+    //we are working with the interface so we achieve a higher level of abstraction
     private final UserRepository userRepository;
 
     public MyTutorUserDetailsService(UserRepository userRepository) {

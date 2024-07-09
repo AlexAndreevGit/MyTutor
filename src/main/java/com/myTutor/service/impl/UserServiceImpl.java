@@ -20,8 +20,8 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
+    //we are working with the interface so we achieve a higher level of abstraction
     private final UserRepository userRepository;
-
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
     private final CategoryRepository categoryRepository;

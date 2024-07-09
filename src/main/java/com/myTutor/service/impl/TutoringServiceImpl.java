@@ -19,6 +19,7 @@ import java.util.Optional;
 @Service
 public class TutoringServiceImpl implements TutoringService {
 
+    //we are working with the interface so we achieve a higher level of abstraction
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
     private final TutoringRepository tutoringRepository;
@@ -53,15 +54,16 @@ public class TutoringServiceImpl implements TutoringService {
 
         List<TutoringOffer> listOfAllOffersAsObject = tutoringRepository.findAllByCategoryId(i);
 
-        List<TutorialViewDTO> liatOfAllOffersAsViewDTO = new ArrayList<>();
+//        List<TutorialViewDTO> liatOfAllOffersAsViewDTO = new ArrayList<>();
+//
+//        for (TutoringOffer tutoringOffer : listOfAllOffersAsObject) {
+//            TutorialViewDTO tutorialViewDTO = modelMapper.map(tutoringOffer, TutorialViewDTO.class);
+//
+//            tutorialViewDTO.setEmailOfTheTutor(tutoringOffer.getAddedBy().getEmail());
+//            liatOfAllOffersAsViewDTO.add(tutorialViewDTO);
+//        }
 
-        for (TutoringOffer tutoringOffer : listOfAllOffersAsObject) {
-            TutorialViewDTO tutorialViewDTO = modelMapper.map(tutoringOffer, TutorialViewDTO.class);
-
-            tutorialViewDTO.setEmailOfTheTutor(tutoringOffer.getAddedBy().getEmail());
-            liatOfAllOffersAsViewDTO.add(tutorialViewDTO);
-        }
-        System.out.println("test");
+        List<TutorialViewDTO> liatOfAllOffersAsViewDTO = returnLiatOfAllOffersAsViewDTO(listOfAllOffersAsObject);
 
         return liatOfAllOffersAsViewDTO;
 
@@ -116,6 +118,22 @@ public class TutoringServiceImpl implements TutoringService {
 ////        }
 //
 //    }
+
+
+    //Example abstraction(hidden method) and encapsulation(private)
+    private List<TutorialViewDTO> returnLiatOfAllOffersAsViewDTO(List<TutoringOffer> listOfAllOffersAsObject){
+
+        List<TutorialViewDTO> liatOfAllOffersAsViewDTO = new ArrayList<>();
+
+        for (TutoringOffer tutoringOffer : listOfAllOffersAsObject) {
+            TutorialViewDTO tutorialViewDTO = modelMapper.map(tutoringOffer, TutorialViewDTO.class);
+
+            tutorialViewDTO.setEmailOfTheTutor(tutoringOffer.getAddedBy().getEmail());
+            liatOfAllOffersAsViewDTO.add(tutorialViewDTO);
+        }
+
+        return liatOfAllOffersAsViewDTO;
+    }
 
 
 }
