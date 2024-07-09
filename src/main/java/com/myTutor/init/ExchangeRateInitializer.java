@@ -22,9 +22,9 @@ public class ExchangeRateInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         //if no initialised exchange rates then fetch the information through REST
-        if (!exRateService.hasInitialisedExRates()){
-            exRateService.updateRates(exRateService.fetchExRates());
-        }
+//        if (!exRateService.hasInitialisedExRates()){
+//            exRateService.updateRates(exRateService.fetchExRates());
+//        }
     }
 
 }

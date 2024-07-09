@@ -20,8 +20,8 @@ public class Category extends BaseEntity{
     @Column
     private String description;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
-    private List<TutoringOffer> tutoringOffers;
+//    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+//    private List<TutoringOffer> tutoringOffers;
 
     //Constructor
     public Category() {
@@ -33,14 +33,6 @@ public class Category extends BaseEntity{
     }
 
     //Getters and setters
-
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public CategoryNameEnum getName() {
         return name;
@@ -58,12 +50,12 @@ public class Category extends BaseEntity{
         this.description = description;
     }
 
-    public List<TutoringOffer> getRecipes() {
-        return tutoringOffers;
-    }
-
-    public void setRecipes(List<TutoringOffer> tutoringOffers) {
-        this.tutoringOffers = tutoringOffers;
-    }
+//    public List<TutoringOffer> getRecipes() {
+//        return tutoringOffers;
+//    }
+//
+//    public void setRecipes(List<TutoringOffer> tutoringOffers) {
+//        this.tutoringOffers = tutoringOffers;
+//    }
 
 }

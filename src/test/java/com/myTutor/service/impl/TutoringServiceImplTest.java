@@ -9,7 +9,9 @@ import static org.mockito.Mockito.when;
 import com.myTutor.model.DTOs.TutorialViewDTO;
 import com.myTutor.model.enums.CategoryNameEnum;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,6 +27,7 @@ import com.myTutor.model.entity.User;
 import com.myTutor.repo.CategoryRepository;
 import com.myTutor.repo.TutoringRepository;
 import com.myTutor.repo.UserRepository;
+import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,8 +103,8 @@ class TutoringServiceImplTest {
 
         List<TutorialViewDTO> result = tutoringService.findAllByCategoryId(1);
 
-        assertEquals(1,result.size());
-        assertEquals("testUser@example.com",result.get(0).getEmailOfTheTutor());
+        assertEquals(1, result.size());
+        assertEquals("testUser@example.com", result.get(0).getEmailOfTheTutor());
 
     }
 
@@ -109,40 +112,15 @@ class TutoringServiceImplTest {
     @Test
     void findByAddedById() {
 
-//        @Override
-//        public List<TutorialViewDTO> findByAddedById(Long id) {
-//
-//            List<TutoringOffer> tutoringOffersAsObject = tutoringRepository.findByAddedById(id);
-//            List<TutorialViewDTO> liatOfAllOffersAsViewDTO = new ArrayList<>();
-//
-//            for (TutoringOffer tutoringOffer : tutoringOffersAsObject) {
-//                TutorialViewDTO tutorialViewDTO = modelMapper.map(tutoringOffer, TutorialViewDTO.class);
-//
-//                liatOfAllOffersAsViewDTO.add(tutorialViewDTO);
-//            }
-//
-//            return liatOfAllOffersAsViewDTO;
-//        }
-
-
-//        List<TutorialViewDTO> offers = new ArrayList<>();
-//        offers.add(tutorialViewDTO);
-//
-//        when(tutoringService.findByAddedById(anyLong())).thenReturn(offers);
-//
-//        when(modelMapper.map(offers.get(0), TutorialViewDTO.class)).thenReturn(new TutorialViewDTO());
-//
-//        List<TutorialViewDTO> result = tutoringService.findByAddedById((long)1);
-//
-//        assertEquals(1,result.size());
-
-
-
         tutoringOffers = new ArrayList<>();
 
         // Mock TutoringOffer object
         TutoringOffer offer1 = new TutoringOffer();
         offer1.setId(1L);
+        offer1.setName("OfferName");
+        offer1.setDescription("D");
+        offer1.setCategory(category);
+        offer1.setPrice(22.0);
         User user1 = new User();
         user1.setId(1L);
         user1.setEmail("user1@example.com");
@@ -170,14 +148,27 @@ class TutoringServiceImplTest {
         // Assert the result
         assertEquals(2, result.size());
 
+        String name = offer1.getName();
+        assertEquals("OfferName", name);
+
+        String description = offer1.getDescription();
+        assertEquals("D", description);
+
+        CategoryNameEnum c = CategoryNameEnum.MATHEMATICS;
+        assertEquals(offer1.getCategory().getName(), c);
+
+        assertEquals(22.0,offer1.getPrice());
+        assertEquals(1L,offer1.getId());
+
     }
 
     @Test
     void removeOffer() {
 
+
         tutoringService.removeOffer(1L);
 
-        verify(tutoringRepository,times(1)).deleteById(1L);
+        verify(tutoringRepository, times(1)).deleteById(1L);
 
     }
 

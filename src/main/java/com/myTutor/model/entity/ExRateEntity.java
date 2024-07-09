@@ -15,7 +15,7 @@ public class ExRateEntity extends BaseEntity{
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
 
-    @NotEmpty
+    //@NotEmpty
     @Column(unique = true)
     private String currency;
 
