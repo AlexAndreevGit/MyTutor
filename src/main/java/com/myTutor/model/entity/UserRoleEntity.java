@@ -3,6 +3,7 @@ package com.myTutor.model.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+//SpringSecurity_9 Define a UserRoleEntity
 @Entity
 @Table(name="roles")
 public class UserRoleEntity extends BaseEntity{
