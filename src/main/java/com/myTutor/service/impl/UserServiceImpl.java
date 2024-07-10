@@ -77,13 +77,12 @@ public class UserServiceImpl implements UserService {
 
             // ----- Users in the Database -----
             User userAdmin = new User("admin1", passwordEncoder.encode("12345"), "admin1@gmail.com");
-            userRepository.save(userAdmin);
 
-//            User user = userRepository.findByUsername("admin1").orElse(null);
-//            List<UserRoleEntity> list = new ArrayList<>();       //TODO  set the role to the user
-//            list.add(new UserRoleEntity(UserRoleEnum.ADMIN));
-//            user.setRoles(list);
-//            userRepository.save(user);
+            List<UserRoleEntity> list = new ArrayList<>();
+            list.add(userRoleEntityAdmin);
+            userAdmin.setRoles(list);
+
+            userRepository.save(userAdmin);
 
             User user1 = new User("user1", passwordEncoder.encode("12345"), "u1@gmail.com");
             userRepository.save(user1);
