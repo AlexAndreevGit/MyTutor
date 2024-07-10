@@ -13,37 +13,42 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    //creating a securityFilterChanin with filters
-    @Bean
+    //SpringSecurity_1 ->
+    //Creating a "SecurityFilterChain"
+    //With HttpSecurity we can easily create security filer chain. It is a builder for the class "SecurityFilterChain"
+    //With the fluent-API it is convenient to make the configuration
+    //We cant debug the fluent-API
+
+    @Bean    //Expose the "SecurityFilterChain" as a bean. Spring takes it and puts it as a filter in the filter chain
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity.authorizeHttpRequests(
-                //setup which URL-s are available for which user
+        return httpSecurity.authorizeHttpRequests(                    //Section 1 -> .authorizeHttpRequests()   setup which URL-s are available for which user
                     authorizeRequests ->
                             authorizeRequests
-                                    .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() //all static resources are accessible for everyone
-                                    .requestMatchers("/", "users/login", "users/register").permitAll() //accessible for all users
-                                    .anyRequest()
-                                    .authenticated() // for everything else we need an authenticated user.
+                                    .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() //all static resources(CSS,images, JS) are accessible for everyone
+                                    .requestMatchers("/", "users/login", "users/register").permitAll()          //accessible for all users
+                                    .anyRequest()       //for all other requests
+                                    .authenticated()    //we need an authenticated user.
                 )
-                .formLogin(formLogin ->
+                .formLogin(formLogin ->                               //Section 2 -> .formLogin()
                         formLogin
-                                .loginPage("/users/login") // ouer login form
-                                .usernameParameter("username") //username parameter
-                                .passwordParameter("password") //password parameter
-                                .defaultSuccessUrl("/",true) // if the login is sucessfull
-                                .failureForwardUrl("/users/login-error") // if teh login fails
+                                .loginPage("/users/login")     //our custom login form
+                                .usernameParameter("username") //The name of the username parameter
+                                .passwordParameter("password") //The name of the password parameter
+                                .defaultSuccessUrl("/",true)  // if the login is successful
+                                .failureForwardUrl("/users/login-error")               // if teh login fails
                 )
-                .logout(
+                .logout(                                                //Section 3 -> .logout()
                         logout ->
-                                logout.logoutUrl("/users/logout")  // the logout URL
-                                        .logoutSuccessUrl("/")     // where to go after successful logout
-                                        .invalidateHttpSession(true)   //invalidate session after that
+                                logout.logoutUrl("/users/logout")       // the logout URL
+                                        .logoutSuccessUrl("/")          // where to go after successful logout
+                                        .invalidateHttpSession(true)    //invalidate session after that
 
                 )
-                .build();
+                .build();                                               //Section 4 -> call the build-method at the end
     }
 
-    // we are exposing "MyTutorUserDetailsService" as a bean
+    //SpringSecurity_3 -> we are exposing "MyTutorUserDetailsService" as a bean
+    //SpringSecurity_4 -> By this library(springsecurity6) we get additional extras that we don't have to implement ourself
     @Bean
     public MyTutorUserDetailsService userDetailsService(UserRepository userRepository){
         return new MyTutorUserDetailsService(userRepository);

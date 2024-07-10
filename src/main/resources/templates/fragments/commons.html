@@ -23,6 +23,7 @@
                 <a class="btn btn-primary" href="/home">Home</a>
             </li>
 
+<!--            SpringSecurity_5        sec:authorize="isAuthenticated()  if the user is loged in, then show this button  -->
             <li class="nav-item mr-2" sec:authorize="isAuthenticated()">
                 <a class="btn btn-primary" href="/tutoriels/add">Add Tutoring Offer</a>
             </li>
@@ -31,6 +32,7 @@
                 <a class="btn btn-primary" href="/">Tutoring Offers</a>
             </li>
 
+            <!--            SpringSecurity_6        sec:authorize="hasRole('ADMIN')"  if the user is administrator, then show this button  -->
             <li class="nav-item mr-2" sec:authorize="hasRole('ADMIN')">
                 <a class="btn btn-primary" href="/admin/statistics">Statistic</a>
             </li>

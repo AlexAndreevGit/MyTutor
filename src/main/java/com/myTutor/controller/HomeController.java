@@ -20,10 +20,10 @@ public class HomeController {
     }
 
     @GetMapping()
-    public String index(@AuthenticationPrincipal UserDetails userDetails,             //XXXXXX
+    public String index(@AuthenticationPrincipal UserDetails userDetails,             //SpringSecurity_7 inject userDetails
                         Model model){
 
-        if(userDetails == null){
+        if(userDetails == null){        //is the user is not logged in then we won't have userDetails
             return "index";
         }
 

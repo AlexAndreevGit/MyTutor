@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
+//SpringSecurity_6
 public class MyTutorUserDetails extends User {
 
     public MyTutorUserDetails(

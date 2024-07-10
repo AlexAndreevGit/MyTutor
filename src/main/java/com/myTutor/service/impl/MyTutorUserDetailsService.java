@@ -12,11 +12,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.List;
 
-
-// on purpose no annotation so it doesent go in the context of spring
+//SpringSecurity_2 -> MyTutorUserDetailsService
+// we implement the interface "implements UserDetailsService" -> so we explain to spring how a user looks in oer application
+// on purpose no annotation so it doesen't go in the context of spring
 public class MyTutorUserDetailsService implements UserDetailsService {
 
-    //we are working with the interface so we achieve a higher level of abstraction
+    //we are working with the interface, so we achieve a higher level of abstraction
     private final UserRepository userRepository;
 
     public MyTutorUserDetailsService(UserRepository userRepository) {
@@ -29,7 +30,7 @@ public class MyTutorUserDetailsService implements UserDetailsService {
 
         return  userRepository
                 .findByUsername(username)
-                .map(MyTutorUserDetailsService::map)
+                .map(MyTutorUserDetailsService::map)  //use the map(User user) method
                 .orElseThrow(()-> new UsernameNotFoundException("Username with username" + username + "not found!"));   // If not such user found then throw an exception
 
     }
