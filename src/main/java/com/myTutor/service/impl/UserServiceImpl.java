@@ -44,9 +44,10 @@ public class UserServiceImpl implements UserService {
         User user = modelMapper.map(userRegisterDTO, User.class);
         user.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
 
-//        UserRoleEntity userRoleEntity = new UserRoleEntity();   //TODO Save not possbile if user role is added
-//        userRoleEntity.setRole(UserRoleEnum.USER);
-//        user.getRoles().add(userRoleEntity);
+        UserRoleEntity userRoleEntityUser = userRoleRepository.getReferenceById(1L);
+        List<UserRoleEntity> list = new ArrayList<>();
+        list.add(userRoleEntityUser);
+        user.setRoles(list);
 
         userRepository.save(user);
     }
@@ -80,17 +81,26 @@ public class UserServiceImpl implements UserService {
 
             List<UserRoleEntity> list = new ArrayList<>();
             list.add(userRoleEntityAdmin);
+            list.add(userRoleEntityUser);
             userAdmin.setRoles(list);
-
             userRepository.save(userAdmin);
 
             User user1 = new User("user1", passwordEncoder.encode("12345"), "u1@gmail.com");
+            List<UserRoleEntity> listUser1 = new ArrayList<>();
+            listUser1.add(userRoleEntityUser);
+            user1.setRoles(listUser1);
             userRepository.save(user1);
 
             User user2 = new User("user2", passwordEncoder.encode("12345"), "u2@gmail.com");
+            List<UserRoleEntity> listUser2 = new ArrayList<>();
+            listUser2.add(userRoleEntityUser);
+            user2.setRoles(listUser2);
             userRepository.save(user2);
 
             User user3 = new User("user3", passwordEncoder.encode("12345"), "u3@gmail.com");
+            List<UserRoleEntity> listUser3 = new ArrayList<>();
+            listUser3.add(userRoleEntityUser);
+            user3.setRoles(listUser3);
             userRepository.save(user3);
 
 
