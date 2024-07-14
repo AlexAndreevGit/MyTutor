@@ -1,65 +1,28 @@
 spring:
+  application:
+    name: MyTutor
   jpa:
-    hibernate:
-      ddl-auto: create-drop
     defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
   sql:
     init:
       mode: never
 
-  mvc:
-    hiddenmethod:
-      filter:
-        enabled: true
+#forex:
+#  api:
+#    key: ${FOREX_API_KEY:}   # the key is my unique ID that I got after the registration. I have to pay if I wat it after 1000 times
+#    url: "https://openexchangerates.org/api/latest.json?app_id={app_id}"
+#    base: "USD"
+
+forex:
+  api:
+    key: test
+    url: "http://example.com"
+    base: "USD"
 
 
-  #  za da se initializaira SQL tablicata s dannite ot data.sql trqbva ni samo pri pyrvoto importirane posle zakomentirame
-  #  sql:
-  #    init:
-  #      mode: always
-
-                      #  jpa:
-    # Choose either MySQL 8 or MySQL 5 below
-    # For MySQL 8
-                      #    database-platform: org.hibernate.dialect.MySQL8Dialect
-    #For MySQL 5
-    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-                      #    hibernate:
-                      #      ddl-auto: update
-                      #    open-in-view: false
-                      #    properties:
-                      #      hibernate:
-                      #        format_sql: true
-                      #    defer-datasource-initialization: true
-  #Cloudinary Properties
-  #cloudinary:
-  #api-key:
-  #api-secret:
-  #cloud-name:
-
-  #Settings to connect to the REST API
-                            #forex:
-                            #  api:
-                            #    key: ${FOREX_API_KEY:}   # the key is my unique ID that I got after the registration. I have to pay if I wat it after 1000 times
-                            #    url: "https://openexchangerates.org/api/latest.json?app_id={app_id}"
-                            #    base: "USD"
-
-    # the key is configuration as an environment variable under "Edit configuration"
-
-#ErrorHandling -> Foe example better error page if we try localhost:8080/hhhh
-#server:
-#  error:
-#    path: /Alex
-
-logging:
-    level:
-      org.hibernate.sql: DEBUG
-      org.hibernate.orm.jdbc.bind: TRACE
-
-open.exchange.rates:
-  schems: https
-  host: dummy
-  path: /api/latest.json
-  app_id: test
-  symbols: EUR,BGN
-  enable: false
+#IT3 import the application.yaml for testing
