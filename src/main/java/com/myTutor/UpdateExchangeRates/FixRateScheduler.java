@@ -14,7 +14,7 @@ public class FixRateScheduler {
         this.exRateService = exRateService;
     }
 
-    @Scheduled(fixedRate = 3600000)    //Update once per hoer
+    @Scheduled(fixedRate = 3600000)    //Update once per hoer   @Scheduled(cron = „0 * * * * ?“)    @Scheduled(fixedDelay = 5000 )
     public void onFixedRate(){
 
         System.out.println("The Exchange Rates were updated!");
