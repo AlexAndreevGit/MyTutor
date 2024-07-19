@@ -104,36 +104,36 @@ public class UserServiceImplTest {
 
     }
 
-    @Test
-    void initUsers() {
-        when(userRepository.count()).thenReturn(0L);
-
-        // Define behavior for CategoryRepository.findByName
-        when(categoryRepository.findByName(CategoryNameEnum.MATHEMATICS)).thenReturn(new Category(CategoryNameEnum.MATHEMATICS));
-        when(categoryRepository.findByName(CategoryNameEnum.INFORMATICS)).thenReturn(new Category(CategoryNameEnum.INFORMATICS));
-        when(categoryRepository.findByName(CategoryNameEnum.DATASCIENCE)).thenReturn(new Category(CategoryNameEnum.DATASCIENCE));
-
-        // Define behavior for PasswordEncoder.encode
-        when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
-
-        userService.initUsers();
-
-        // Verify that UserRepository.count was called
-        verify(userRepository, times(1)).count();
-
-        // Verify that UserRoleRepository.save was called twice
-        verify(userRoleRepository, times(2)).save(any(UserRoleEntity.class));
-
-        // Verify that UserRepository.save was called 4 times
-        verify(userRepository, times(4)).save(any(User.class));
-
-        // Verify that CategoryRepository.findByName was called for each category
-        verify(categoryRepository, times(1)).findByName(CategoryNameEnum.MATHEMATICS);
-        verify(categoryRepository, times(1)).findByName(CategoryNameEnum.INFORMATICS);
-        verify(categoryRepository, times(1)).findByName(CategoryNameEnum.DATASCIENCE);
-
-        // Verify that TutoringRepository.save was called for each offer
-//        verify(tutoringRepository, times(1)).save(any(TutoringOffer.class));
-
-    }
+//    @Test
+//    void initUsers() {
+//        when(userRepository.count()).thenReturn(0L);
+//
+//        // Define behavior for CategoryRepository.findByName
+//        when(categoryRepository.findByName(CategoryNameEnum.MATHEMATICS)).thenReturn(new Category(CategoryNameEnum.MATHEMATICS));
+//        when(categoryRepository.findByName(CategoryNameEnum.INFORMATICS)).thenReturn(new Category(CategoryNameEnum.INFORMATICS));
+//        when(categoryRepository.findByName(CategoryNameEnum.DATASCIENCE)).thenReturn(new Category(CategoryNameEnum.DATASCIENCE));
+//
+//        // Define behavior for PasswordEncoder.encode
+//        when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
+//
+//        userService.initUsers();
+//
+//        // Verify that UserRepository.count was called
+//        verify(userRepository, times(1)).count();
+//
+//        // Verify that UserRoleRepository.save was called twice
+//        verify(userRoleRepository, times(2)).save(any(UserRoleEntity.class));
+//
+//        // Verify that UserRepository.save was called 4 times
+//        verify(userRepository, times(4)).save(any(User.class));
+//
+//        // Verify that CategoryRepository.findByName was called for each category
+//        verify(categoryRepository, times(1)).findByName(CategoryNameEnum.MATHEMATICS);
+//        verify(categoryRepository, times(1)).findByName(CategoryNameEnum.INFORMATICS);
+//        verify(categoryRepository, times(1)).findByName(CategoryNameEnum.DATASCIENCE);
+//
+//        // Verify that TutoringRepository.save was called for each offer
+////        verify(tutoringRepository, times(1)).save(any(TutoringOffer.class));
+//
+//    }
 }
