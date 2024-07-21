@@ -9,9 +9,6 @@ import java.util.List;
 @Table(name= "Tutors")
 public class User extends BaseEntity{
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -31,11 +28,6 @@ public class User extends BaseEntity{
     )
     private List<UserRoleEntity> roles =new ArrayList<>();
 
-//    @OneToMany(mappedBy = "addedBy", fetch = FetchType.EAGER)
-//    private List<TutoringOffer> addedTutoringOffers;
-//
-//    @OneToMany(mappedBy = "addedBy", fetch = FetchType.EAGER)
-//    private List<TutoringOffer> favouriteTutoringOffers;
 
     //Constructor
     public User() {
@@ -48,15 +40,6 @@ public class User extends BaseEntity{
         this.email = email;
     }
 
-
-    //Getters and setters
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public String getUsername() {
         return username;
@@ -81,28 +64,6 @@ public class User extends BaseEntity{
     public void setEmail(String email) {
         this.email = email;
     }
-
-//    public List<TutoringOffer> getAddedRecipes() {
-//        return addedTutoringOffers;
-//    }
-//
-//    public void setAddedRecipes(List<TutoringOffer> addedTutoringOffers) {
-//        this.addedTutoringOffers = addedTutoringOffers;
-//    }
-//
-//    public List<TutoringOffer> getFavouriteRecipes() {
-//        return favouriteTutoringOffers;
-//    }
-//
-//    public void setFavouriteRecipes(List<TutoringOffer> favouriteTutoringOffers) {
-//        this.favouriteTutoringOffers = favouriteTutoringOffers;
-//    }
-//
-//    public void addFavorite(TutoringOffer tutoringOffer) {
-//
-//        this.favouriteTutoringOffers.add(tutoringOffer);
-//
-//    }
 
     public List<UserRoleEntity> getRoles() {
         return roles;

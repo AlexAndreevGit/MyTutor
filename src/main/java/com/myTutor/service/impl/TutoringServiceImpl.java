@@ -54,41 +54,12 @@ public class TutoringServiceImpl implements TutoringService {
 
         List<TutoringOffer> listOfAllOffersAsObject = tutoringRepository.findAllByCategoryId(i);
 
-//        List<TutorialViewDTO> liatOfAllOffersAsViewDTO = new ArrayList<>();
-//
-//        for (TutoringOffer tutoringOffer : listOfAllOffersAsObject) {
-//            TutorialViewDTO tutorialViewDTO = modelMapper.map(tutoringOffer, TutorialViewDTO.class);
-//
-//            tutorialViewDTO.setEmailOfTheTutor(tutoringOffer.getAddedBy().getEmail());
-//            liatOfAllOffersAsViewDTO.add(tutorialViewDTO);
-//        }
-
         List<TutorialViewDTO> liatOfAllOffersAsViewDTO = returnLiatOfAllOffersAsViewDTO(listOfAllOffersAsObject);
 
         return liatOfAllOffersAsViewDTO;
 
     }
 
-//    @Override
-//    public void addToFavouries(Long id, long recipeId) {
-//
-//        Optional<User> userOptional = userRepository.findById(id);
-//
-//        if (userOptional.isEmpty()) {
-//            return;
-//        }
-//
-//        Optional<TutoringOffer> recipeOptional = tutoringRepository.findById(recipeId);
-//
-//        if (recipeOptional.isEmpty()) {
-//            return;
-//        }
-//
-//        userOptional.get().addFavorite(recipeOptional.get());
-//
-//        userRepository.save(userOptional.get());  // ako ne e optional bez get?????
-//
-//    }
 
     @Override
     public List<TutorialViewDTO> findByAddedById(Long id) {
@@ -109,16 +80,6 @@ public class TutoringServiceImpl implements TutoringService {
     public void removeOffer(Long id) {
         tutoringRepository.deleteById(id);
     }
-
-//    @Override
-//    public void initTutoringOffers() {
-//
-////        if (tutoringRepository.count() == 0) {
-////            TutoringOffer tutoringOffer = new TutoringOffer();
-////        }
-//
-//    }
-
 
     //Example abstraction(hidden method) and encapsulation(private)
     private List<TutorialViewDTO> returnLiatOfAllOffersAsViewDTO(List<TutoringOffer> listOfAllOffersAsObject){

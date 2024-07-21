@@ -11,11 +11,9 @@ public interface TutoringService {
 
     List<TutorialViewDTO> findAllByCategoryId(int i);
 
-    //void addToFavouries(Long id, long recipeId);
 
     List<TutorialViewDTO> findByAddedById(Long id);
 
     void removeOffer(Long id);
 
-    //void initTutoringOffers();
 }

@@ -5,7 +5,7 @@ import com.myTutor.service.ExRateService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-@Component //s2
+@Component
 public class FixRateScheduler {
 
     private final ExRateService exRateService;

@@ -27,8 +27,6 @@ public class HomeController {
             return "index";
         }
 
-        //String name = userDetails.getUsername();
-
         //Generate the needed lists
         List<TutorialViewDTO> informaticsTutorialsAsView = tutoringService.findAllByCategoryId(2);
         int countInformticsTutorials = informaticsTutorialsAsView.size();

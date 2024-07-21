@@ -8,9 +8,6 @@ import jakarta.validation.constraints.NotNull;
 @Table(name="roles")
 public class UserRoleEntity extends BaseEntity{
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
 
     @NotNull
     @Column(unique = true)
@@ -18,23 +15,12 @@ public class UserRoleEntity extends BaseEntity{
     private UserRoleEnum role;
 
     //Constructor
-
-
     public UserRoleEntity() {
     }
 
     public UserRoleEntity(UserRoleEnum role) {
         this.role = role;
     }
-
-    //Getters and setters
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public UserRoleEnum getRole() {
         return role;

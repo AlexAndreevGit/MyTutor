@@ -9,19 +9,12 @@ import java.util.List;
 @Table(name= "TutoringCategories")
 public class Category extends BaseEntity{
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
     @Column(nullable = false, unique = true)
     @Enumerated(EnumType.STRING)
     private CategoryNameEnum name;
 
     @Column
     private String description;
-
-//    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
-//    private List<TutoringOffer> tutoringOffers;
 
     //Constructor
     public Category() {
@@ -49,13 +42,5 @@ public class Category extends BaseEntity{
     public void setDescription(String description) {
         this.description = description;
     }
-
-//    public List<TutoringOffer> getRecipes() {
-//        return tutoringOffers;
-//    }
-//
-//    public void setRecipes(List<TutoringOffer> tutoringOffers) {
-//        this.tutoringOffers = tutoringOffers;
-//    }
 
 }

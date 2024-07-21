@@ -36,6 +36,5 @@ public class CurrencyController {
         ));
     }
 
-//    http://localhost:8080/api/convert?from=BGN&to=EUR&amount=10
 
 }

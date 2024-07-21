@@ -51,13 +51,6 @@ private final TutoringService tutoringService;
 
     }
 
-//    @PostMapping("/add-to-favorites/{recipeId}")
-//    public String addToFavorites(@PathVariable long recipeId){
-//
-//        tutoringService.addToFavouries(currentUser.getId(),recipeId);
-//
-//        return "redirect:/";
-//    }
 
     @GetMapping("/remove/{id}")
     public String ready(@PathVariable Long id){
