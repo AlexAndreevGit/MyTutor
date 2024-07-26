@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: MyTutor
+  jpa:
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: never
+
+#forex:
+#  api:
+#    key: ${FOREX_API_KEY:}   # the key is my unique ID that I got after the registration. I have to pay if I wat it after 1000 times
+#    url: "https://openexchangerates.org/api/latest.json?app_id={app_id}"
+#    base: "USD"
+
+forex:
+  api:
+    key: test
+    url: "http://example.com"
+    base: "USD"
+
+
+#IT3 import the application.yaml for testing
