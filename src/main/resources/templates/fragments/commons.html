@@ -28,9 +28,23 @@
                 <a class="btn btn-primary" href="/tutoriels/add">Add Tutoring Offer</a>
             </li>
 
+<!--            <li class="nav-item mr-2" sec:authorize="isAuthenticated()">-->
+<!--                <a class="btn btn-primary" href="/">Tutoring Offers</a>-->
+<!--            </li>-->
+
             <li class="nav-item mr-2" sec:authorize="isAuthenticated()">
-                <a class="btn btn-primary" href="/">Tutoring Offers</a>
+                <a class="btn btn-primary" href="/info">Tutoring Offers informatics</a>
             </li>
+
+            <li class="nav-item mr-2" sec:authorize="isAuthenticated()">
+                <a class="btn btn-primary" href="/math">Tutoring Offers mathematics</a>
+            </li>
+
+            <li class="nav-item mr-2" sec:authorize="isAuthenticated()">
+                <a class="btn btn-primary" href="/data">Tutoring Offers datascience</a>
+            </li>
+
+
 
             <!--            SpringSecurity_6        sec:authorize="hasRole('ADMIN')"  if the user is administrator, then show this button  -->
             <li class="nav-item mr-2" sec:authorize="hasRole('ADMIN')">

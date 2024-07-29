@@ -81,27 +81,27 @@ public class InitDataServiceImpl implements InitDataService {
             Category category3Data = categoryRepository.findByName(CategoryNameEnum.DATASCIENCE);
 
             //Mathematics offer
-            TutoringOffer tutoringOfferMath1 = new TutoringOffer("Math1", "Description math offer 1", 22.3, category1Math, user1);
+            TutoringOffer tutoringOfferMath1 = new TutoringOffer("Linear algebra 1", "Description math offer 1", 22.3, category1Math, user1);
             tutoringRepository.save(tutoringOfferMath1);
 
-            TutoringOffer tutoringOfferMath2 = new TutoringOffer("Math2", "Description math offer 2", 12.3, category1Math, user1);
+            TutoringOffer tutoringOfferMath2 = new TutoringOffer("Integrals", "Description math offer 2", 12.3, category1Math, user1);
             tutoringRepository.save(tutoringOfferMath2);
 
-            TutoringOffer tutoringOfferMath3 = new TutoringOffer("Math3", "Description math offer 3", 32.3, category1Math, user1);
+            TutoringOffer tutoringOfferMath3 = new TutoringOffer("Math introduction", "Description math offer 3", 32.3, category1Math, user1);
             tutoringRepository.save(tutoringOfferMath3);
 
             //Informaticss offer
-            TutoringOffer tutoringOfferInfo1 = new TutoringOffer("Info1", "Description info offer 1", 32.3, category2Info, user2);
+            TutoringOffer tutoringOfferInfo1 = new TutoringOffer("Java advanced", "Description info offer 1", 32.3, category2Info, user2);
             tutoringRepository.save(tutoringOfferInfo1);
 
-            TutoringOffer tutoringOfferInfo2 = new TutoringOffer("Info2", "Description info offer 2", 15.3, category2Info, user2);
+            TutoringOffer tutoringOfferInfo2 = new TutoringOffer("SQL", "Description info offer 2", 15.3, category2Info, user2);
             tutoringRepository.save(tutoringOfferInfo2);
 
-            TutoringOffer tutoringOfferInfo3 = new TutoringOffer("Info3", "Description info offer 3", 37.3, category2Info, user2);
+            TutoringOffer tutoringOfferInfo3 = new TutoringOffer("Python", "Description info offer 3", 37.3, category2Info, user2);
             tutoringRepository.save(tutoringOfferInfo3);
 
             //Datascience offer
-            TutoringOffer tutoringOfferDatascience1 = new TutoringOffer("Data1", "Description Datascience offer 1", 32.3, category3Data, user3);
+            TutoringOffer tutoringOfferDatascience1 = new TutoringOffer("Data science for beginners", "Description Datascience offer 1", 32.3, category3Data, user3);
             tutoringRepository.save(tutoringOfferDatascience1);
 
 
