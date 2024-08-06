@@ -35,11 +35,11 @@ public class SecurityConfig {
                                 .usernameParameter("username") //The name of the username parameter
                                 .passwordParameter("password") //The name of the password parameter
                                 .defaultSuccessUrl("/",true)  // if the login is successful
-                                .failureForwardUrl("/users/login-error")               // if teh login fails
+                                .failureForwardUrl("/users/login-error")               // client side redirect, if the login fails    failerURL- server side
                 )
                 .logout(                                                //Section 3 -> .logout()
                         logout ->
-                                logout.logoutUrl("/users/logout")       // the logout URL
+                                logout.logoutUrl("/users/logout")       // the logout URL . It is a POST request. POST because of the CSRF token. The CSRF token provide protection.
                                         .logoutSuccessUrl("/")          // where to go after successful logout
                                         .invalidateHttpSession(true)    //invalidate session after that
 

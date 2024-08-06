@@ -27,33 +27,12 @@ public class HomeController {
             return "index";
         }
 
-//        //Generate the needed lists
-//        List<TutorialViewDTO> informaticsTutorialsAsView = tutoringService.findAllByCategoryId(2);
-//        int countInformticsTutorials = informaticsTutorialsAsView.size();
-//
-//        List<TutorialViewDTO> mathematicsTutorialsAsView = tutoringService.findAllByCategoryId(1);
-//        int countMathematicsTutorials = mathematicsTutorialsAsView.size();
-//
-//        List<TutorialViewDTO> datascienceTutorialsAsView = tutoringService.findAllByCategoryId(3);
-//        int countDatascienceTutorials = datascienceTutorialsAsView.size();
-//
-//
-//        //Insert the lists in the home html
-//        model.addAttribute("informaticsTutorialsAsView",informaticsTutorialsAsView);
-//        model.addAttribute("countInformticsTutorials",countInformticsTutorials);
-//
-//        model.addAttribute("mathematicsTutorialsAsView",mathematicsTutorialsAsView);
-//        model.addAttribute("countMathematicsTutorials",countMathematicsTutorials);
-//
-//        model.addAttribute("datascienceTutorialsAsView",datascienceTutorialsAsView);
-//        model.addAttribute("countDatascienceTutorials",countDatascienceTutorials);
-
         return "home";
 
     }
 
     @GetMapping("/info")
-    public String informaticOffers(@AuthenticationPrincipal UserDetails userDetails,             //XXXXXX
+    public String informaticOffers(@AuthenticationPrincipal UserDetails userDetails,
                                    Model model){
 
         if(userDetails == null){
@@ -64,22 +43,11 @@ public class HomeController {
         List<TutorialViewDTO> informaticsTutorialsAsView = tutoringService.findAllByCategoryId(2);
         int countInformticsTutorials = informaticsTutorialsAsView.size();
 
-//        List<TutorialViewDTO> mathematicsTutorialsAsView = tutoringService.findAllByCategoryId(1);
-//        int countMathematicsTutorials = mathematicsTutorialsAsView.size();
-//
-//        List<TutorialViewDTO> datascienceTutorialsAsView = tutoringService.findAllByCategoryId(3);
-//        int countDatascienceTutorials = datascienceTutorialsAsView.size();
-
 
         //Insert the lists in the home html
         model.addAttribute("informaticsTutorialsAsView",informaticsTutorialsAsView);
         model.addAttribute("countInformticsTutorials",countInformticsTutorials);
 
-//        model.addAttribute("mathematicsTutorialsAsView",mathematicsTutorialsAsView);
-//        model.addAttribute("countMathematicsTutorials",countMathematicsTutorials);
-//
-//        model.addAttribute("datascienceTutorialsAsView",datascienceTutorialsAsView);
-//        model.addAttribute("countDatascienceTutorials",countDatascienceTutorials);
 
         return "homeInformatics";
 
@@ -93,26 +61,14 @@ public class HomeController {
             return "index";
         }
 
-//        //Generate the needed lists
-//        List<TutorialViewDTO> informaticsTutorialsAsView = tutoringService.findAllByCategoryId(2);
-//        int countInformticsTutorials = informaticsTutorialsAsView.size();
 
         List<TutorialViewDTO> mathematicsTutorialsAsView = tutoringService.findAllByCategoryId(1);
         int countMathematicsTutorials = mathematicsTutorialsAsView.size();
 
-//        List<TutorialViewDTO> datascienceTutorialsAsView = tutoringService.findAllByCategoryId(3);
-//        int countDatascienceTutorials = datascienceTutorialsAsView.size();
-
-
-//        //Insert the lists in the home html
-//        model.addAttribute("informaticsTutorialsAsView",informaticsTutorialsAsView);
-//        model.addAttribute("countInformticsTutorials",countInformticsTutorials);
 
         model.addAttribute("mathematicsTutorialsAsView",mathematicsTutorialsAsView);
         model.addAttribute("countMathematicsTutorials",countMathematicsTutorials);
 
-//        model.addAttribute("datascienceTutorialsAsView",datascienceTutorialsAsView);
-//        model.addAttribute("countDatascienceTutorials",countDatascienceTutorials);
 
         return "homeMathematic";
 
@@ -126,23 +82,11 @@ public class HomeController {
             return "index";
         }
 
-//        //Generate the needed lists
-//        List<TutorialViewDTO> informaticsTutorialsAsView = tutoringService.findAllByCategoryId(2);
-//        int countInformticsTutorials = informaticsTutorialsAsView.size();
-//
-//        List<TutorialViewDTO> mathematicsTutorialsAsView = tutoringService.findAllByCategoryId(1);
-//        int countMathematicsTutorials = mathematicsTutorialsAsView.size();
 
         List<TutorialViewDTO> datascienceTutorialsAsView = tutoringService.findAllByCategoryId(3);
         int countDatascienceTutorials = datascienceTutorialsAsView.size();
 
 
-//        //Insert the lists in the home html
-//        model.addAttribute("informaticsTutorialsAsView",informaticsTutorialsAsView);
-//        model.addAttribute("countInformticsTutorials",countInformticsTutorials);
-//
-//        model.addAttribute("mathematicsTutorialsAsView",mathematicsTutorialsAsView);
-//        model.addAttribute("countMathematicsTutorials",countMathematicsTutorials);
 
         model.addAttribute("datascienceTutorialsAsView",datascienceTutorialsAsView);
         model.addAttribute("countDatascienceTutorials",countDatascienceTutorials);

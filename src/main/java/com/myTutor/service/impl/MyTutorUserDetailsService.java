@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.List;
 
 //SpringSecurity_2 -> MyTutorUserDetailsService
-// we implement the interface "implements UserDetailsService" -> so we explain to spring how a user looks in oer application
+// we implement the interface "implements UserDetailsService" -> so we explain to spring how a user looks in our application
 // on purpose no annotation so it doesen't go in the context of spring
 public class MyTutorUserDetailsService implements UserDetailsService {
 
@@ -35,11 +35,12 @@ public class MyTutorUserDetailsService implements UserDetailsService {
 
     }
 
+    //The spring representation of the user is described by the interface "UserDetails"
     private static UserDetails map(User user){
 //        return org.springframework.security.core.userdetails.User
 //                .withUsername(user.getUsername())
 //                .password(user.getPassword())
-//                .authorities(List.of())/*TODO*/
+//                .authorities(List.of())
 //                .disabled(false)
 //                .build();
 

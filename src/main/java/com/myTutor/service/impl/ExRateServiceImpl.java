@@ -17,6 +17,8 @@ import java.math.RoundingMode;
 import java.util.Objects;
 import java.util.Optional;
 
+//REST_5 define all the needed methods in the ExRateServiceImpl
+
 @Service
 public class ExRateServiceImpl implements ExRateService {
 

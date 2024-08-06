@@ -49,6 +49,7 @@ public class TutoringServiceImpl implements TutoringService {
 
     }
 
+    //Used to visualise the offers in the math, indo and datascience pages
     @Override
     public List<TutorialViewDTO> findAllByCategoryId(int i) {
 
@@ -61,6 +62,7 @@ public class TutoringServiceImpl implements TutoringService {
     }
 
 
+    //used in my information to visualise users offers
     @Override
     public List<TutorialViewDTO> findByAddedById(Long id) {
 

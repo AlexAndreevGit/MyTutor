@@ -12,4 +12,6 @@ public interface UserService {
     User findById(Long currentUserId);
 
     void initUsers();
+
+    void deleteUserById(Long id);
 }

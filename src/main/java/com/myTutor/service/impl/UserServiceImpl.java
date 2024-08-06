@@ -66,7 +66,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void initUsers() {
 
-        //remove
+
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
 
     }
 

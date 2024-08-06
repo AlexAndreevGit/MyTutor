@@ -4,10 +4,12 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+//REST_4 Create the class ForexApiConfig to encapsulate the properties from the application.yaml
+
 //POJO for the configuration. Object with fields, getters and setters
 // the fieds shouled be with the same names as in the application.yaml
 @Configuration
-@ConfigurationProperties(prefix = "forex.api")
+@ConfigurationProperties(prefix = "forex.api") // In the prefix we put forex.api from the application.yaml. Then we put key usl and base as fields
 public class ForexApiConfig {
 
     private String key;
@@ -41,7 +43,7 @@ public class ForexApiConfig {
         this.base = base;
     }
 
-    @PostConstruct
+    @PostConstruct //Control if key, base and url are configured correctly otherwise the application will not start
     public void checkConfiguration(){
 
         verifyNotNullOrEmpty("key",key);

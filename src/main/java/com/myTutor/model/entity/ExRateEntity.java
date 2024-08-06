@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
 
+//REST_3 Defining ExRateEntity
+
 @Entity
 @Table(name= "ex_rates")
 public class ExRateEntity extends BaseEntity{
