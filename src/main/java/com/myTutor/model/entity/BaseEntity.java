@@ -12,7 +12,7 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //getters and setters
+    //getters and setters1
     public Long getId() {
         return id;
     }
